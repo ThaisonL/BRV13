@@ -1,11 +1,11 @@
 import HistoricalPrices from "../components/stocksAndAnalyses/HistoricalPrices";
-import KeyMetrics from "../components/stocksAndAnalyses/KeyMetrics";
+import FinancialHealthIndicator from "../components/stocksAndAnalyses/FinancialHealthIndicator";
 
 function StocksAndA() {
   return (
     <>
       <HistoricalPrices />
-      <KeyMetrics />
+      <FinancialHealthIndicator />
     </>
   );
 }
