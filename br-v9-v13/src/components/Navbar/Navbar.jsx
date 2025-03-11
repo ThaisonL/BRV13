@@ -7,8 +7,8 @@ function Navbar() {
         {" "}
         home
       </NavLink>
-      <NavLink to="/playlist" className="">
-        Playlists
+      <NavLink to="/StocksAndA" className="">
+        StocksAndAnalyses
       </NavLink>
       <NavLink to="/recommend" className="">
         {" "}
