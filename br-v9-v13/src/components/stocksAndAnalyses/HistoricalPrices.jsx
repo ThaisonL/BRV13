@@ -28,7 +28,7 @@ function HistoricalPrices() {
   if (status === "failed") return <p>Error: {error}</p>;
 
   return (
-    <section className="w-full flex items-center  flex-col">
+    <section className="w-full flex items-center flex-col ">
       <h2>Historical Prices (in $)</h2>
       {data?.historical ? (
         <section className="flex justify-center w-11/12 h-[400px]">

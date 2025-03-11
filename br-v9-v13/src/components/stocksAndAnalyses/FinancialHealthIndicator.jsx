@@ -23,7 +23,7 @@ function FinancialHealthIndicator() {
   const metrics = data[0]; // Accessing the first data object
 
   return (
-    <main>
+    <section className="flex items-center flex-col mt-10">
       <h2>Financial Health Indicators</h2>
       <ul>
         <li className={getIndicatorColor(metrics.currentRatio, 1.5, 1.0)}>
@@ -47,7 +47,7 @@ function FinancialHealthIndicator() {
           Free Cash Flow Yield: {(metrics.freeCashFlowYield * 100)?.toFixed(2)}%
         </li>
       </ul>
-    </main>
+    </section>
   );
 }
 
