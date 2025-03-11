@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const apiKey = "4VaQvzEdvbD227Udssfv4wn00zgHLV3b";
-const historical_prices_url = `https://financialmodelingprep.com/api/v3/historical-price-full/AAPL?serietype=line&apikey=${apiKey}`;
+const historical_prices_url = `https://financialmodelingprep.com/api/v3/historical-price-full/AAPL?from=2000-01-01&serietype=line&apikey=${apiKey}`;
 
 const loadFromLocalStorage = () => {
   try {
