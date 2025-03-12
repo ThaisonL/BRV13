@@ -20,7 +20,7 @@ function FinancialHealthIndicator() {
   if (status === "failed") return <p>Error: {error}</p>;
   if (!data || data.length === 0) return <p>No financial data available</p>;
 
-  const metrics = data[0]; // Accessing the first data object
+  const metrics = data[0];
 
   return (
     <section className="flex justify-center flex-col">

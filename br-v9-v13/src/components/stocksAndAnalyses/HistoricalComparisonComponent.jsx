@@ -10,6 +10,7 @@ import {
   Tooltip,
   Legend,
   ReferenceLine,
+  ResponsiveContainer,
 } from "recharts";
 
 function HistoricalComparisonComponent() {
@@ -51,7 +52,7 @@ function HistoricalComparisonComponent() {
     .reverse();
 
   return (
-    <section className="flex flex-col items-center">
+    <section className="flex flex-col items-center w-2xl">
       <h2>Historical Comparison of Financial Metrics</h2>
       <select
         className="mt-4 mb-4 p-2 border rounded"
@@ -64,37 +65,47 @@ function HistoricalComparisonComponent() {
           </option>
         ))}
       </select>
+      <ResponsiveContainer width="100%" height={400}>
+        <LineChart
+          data={historicalData}
+          margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis
+            dataKey="date"
+            interval="preserveStartEnd"
+            tick={{ angle: -45, dx: -5, dy: 10 }}
+            tickFormatter={(date) => {
+              const parsedDate = new Date(date);
+              return parsedDate.toLocaleDateString("en-US", {
+                year: "2-digit",
+                month: "short",
+              });
+            }}
+          />
+          <YAxis
+            domain={
+              selectedMetric.includes("Yield")
+                ? [0, 0.1]
+                : [0, (dataMax) => Math.ceil(dataMax * 1.1)]
+            }
+            tickCount={8}
+            allowDecimals={true}
+            scale="linear"
+            tickFormatter={(value) => Number(value.toPrecision(4))}
+          />
 
-      <LineChart
-        width={500}
-        height={400}
-        data={historicalData}
-        margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="date" />
-        <YAxis
-          domain={
-            selectedMetric.includes("Yield")
-              ? [0, 0.1]
-              : [0, (dataMax) => Math.ceil(dataMax * 1.1)]
-          }
-          tickCount={8}
-          allowDecimals={true}
-          scale="linear"
-          tickFormatter={(value) => Number(value.toPrecision(4))}
-        />
-
-        <Tooltip />
-        <Legend />
-        <ReferenceLine
-          y={benchmarks[selectedMetric]}
-          stroke="red"
-          label="Benchmark"
-        />
-        <Line type="monotone" dataKey="value" stroke="#8884d8" />
-        <Line type="basis" dataKey="Benchmark" stroke="red" />
-      </LineChart>
+          <Tooltip />
+          <Legend wrapperStyle={{ paddingTop: 20 }} />
+          <ReferenceLine
+            y={benchmarks[selectedMetric]}
+            stroke="red"
+            label="Benchmark"
+          />
+          <Line type="monotone" dataKey="value" stroke="#8884d8" />
+          <Line type="basis" dataKey="Benchmark" stroke="red" />
+        </LineChart>
+      </ResponsiveContainer>
     </section>
   );
 }

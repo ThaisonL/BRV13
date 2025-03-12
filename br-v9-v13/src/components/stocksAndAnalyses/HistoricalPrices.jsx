@@ -32,7 +32,7 @@ function HistoricalPrices() {
       <h2>Historical Prices (in $)</h2>
       {data?.historical ? (
         <section className="flex justify-center w-11/12 h-[400px]">
-          <ResponsiveContainer width="90%" height="100%">
+          <ResponsiveContainer width="100%" height={400}>
             <LineChart
               data={[...data.historical]
                 .filter((item) => new Date(item.date).getFullYear() >= 2000)
@@ -40,10 +40,21 @@ function HistoricalPrices() {
                 .filter((_, index) => index % 5 === 0)}
             >
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="date" />
+              <XAxis
+                dataKey="date"
+                interval="preserveStartEnd"
+                tick={{ angle: -45, dx: -5, dy: 10 }}
+                tickFormatter={(date) => {
+                  const parsedDate = new Date(date);
+                  return parsedDate.toLocaleDateString("en-US", {
+                    year: "2-digit",
+                    month: "short",
+                  });
+                }}
+              />
               <YAxis />
               <Tooltip />
-              <Legend />
+              <Legend wrapperStyle={{ paddingTop: 20 }} />
               <Line
                 type="linear"
                 dataKey="close"

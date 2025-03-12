@@ -8,7 +8,7 @@ function StocksAndA() {
       <section>
         <HistoricalPrices />
       </section>
-      <section className="flex justify-center gap-20">
+      <section className="flex flex-col items-center justify-center gap-10">
         <FinancialHealthIndicator />
         <HistoricalComparisonComponent />
       </section>
