@@ -1,8 +1,8 @@
 import Navbar from "../Navbar/Navbar";
 function Header() {
   return (
-    <header className="">
-      <p className="">Header</p>
+    <header className="w-11/12 h-28 flex flex-row bg-blue-600 items-center justify-around">
+      <h1 className="text-5xl text-white">Header</h1>
       <Navbar />
     </header>
   );

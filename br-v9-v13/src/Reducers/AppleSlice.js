@@ -7,13 +7,13 @@ const BASE_URL = "https://financialmodelingprep.com/api/v3";
 // Async thunk for stock price change (AAPL)
 export const fetchStockPriceChange = createAsyncThunk(
   "stock/fetchPriceChange",
-  async (_, thunkAPI) => {
+  async (thunkAPI) => {
     try {
       const response = await fetch(
         `${BASE_URL}/stock-price-change/AAPL?apikey=${API_KEY}`
       );
       const data = await response.json();
-      console.log("Api response", data);
+      console.log("AAPL Stock Api response", data);
       return data[0] || {}; // API returns an array with a single object for AAPL
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -36,7 +36,6 @@ const stockSlice = createSlice({
         state.error = null;
       })
       .addCase(fetchStockPriceChange.fulfilled, (state, action) => {
-        console.log("API Response:", action.payload);
         state.loading = false;
         state.priceChange = action.payload;
       })
