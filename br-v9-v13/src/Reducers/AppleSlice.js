@@ -13,7 +13,6 @@ export const fetchStockPriceChange = createAsyncThunk(
         `${BASE_URL}/stock-price-change/AAPL?apikey=${API_KEY}`
       );
       const data = await response.json();
-      console.log("AAPL Stock Api response", data);
       return data[0] || {}; // API returns an array with a single object for AAPL
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

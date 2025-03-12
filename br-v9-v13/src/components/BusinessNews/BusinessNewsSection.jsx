@@ -10,7 +10,6 @@ function BusinessNewsSection() {
   useEffect(() => {
     dispatch(fetchNews());
   }, []);
-  console.log("news:", news);
 
   // Add defensive checks before accessing the news data
   if (loading) return <p>Loading news</p>;
@@ -18,7 +17,6 @@ function BusinessNewsSection() {
   if (!news) {
     return <p>No economic news available.</p>;
   }
-  // Logging news to see what it contains
 
   return (
     <section className="flex flex-row flex-wrap justify-center items-start">
