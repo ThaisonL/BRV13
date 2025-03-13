@@ -4,13 +4,13 @@ import HistoricalComparisonComponent from "../components/stocksAndAnalyses/Histo
 
 function StocksAndA() {
   return (
-    <main className="flex flex-col">
-      <section>
+    <main className="flex flex-col w-full bg-[#faebd7]">
+      <section className="mt-10 mb-25">
         <HistoricalPrices />
       </section>
-      <section className="flex flex-col items-center justify-center gap-10">
-        <FinancialHealthIndicator />
+      <section className="flex flex-col md:flex-row items-center justify-center mb-15">
         <HistoricalComparisonComponent />
+        <FinancialHealthIndicator />
       </section>
     </main>
   );

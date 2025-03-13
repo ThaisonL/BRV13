@@ -23,9 +23,9 @@ function FinancialHealthIndicator() {
   const metrics = data[0];
 
   return (
-    <section className="flex justify-center flex-col">
-      <h2 className="mb-4">Financial Health Indicators</h2>
-      <ul>
+    <section className="flex justify-center flex-col mt-8 md:mr-5 bg-[#fcfcfc] p-5 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105">
+      <h2 className="mb-4 text-m lg:text-xl">Financial Health Indicators</h2>
+      <ul className="text-[15px] lg:text-[17px]">
         <li className={getIndicatorColor(metrics.currentRatio, 1.5, 1.0)}>
           Current Ratio: {metrics.currentRatio?.toFixed(2)}
         </li>

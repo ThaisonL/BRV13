@@ -28,11 +28,11 @@ function HistoricalPrices() {
   if (status === "failed") return <p>Error: {error}</p>;
 
   return (
-    <section className="w-full flex items-center flex-col mb-25">
-      <h2>Historical Prices (in $)</h2>
+    <section className="flex items-center justify-center flex-col w-full">
+      <h2 className="text-m lg:text-xl mb-0.5">Historical Prices (in $)</h2>
       {data?.historical ? (
-        <section className="flex justify-center w-11/12 h-[400px]">
-          <ResponsiveContainer width="100%" height={400}>
+        <section className="flex justify-center w-11/12 pt-5 h-[425px] bg-[#fcfcfc] rounded-lg shadow-lg">
+          <ResponsiveContainer width="90%" height={400}>
             <LineChart
               data={[...data.historical]
                 .filter((item) => new Date(item.date).getFullYear() >= 2000)
@@ -43,7 +43,7 @@ function HistoricalPrices() {
               <XAxis
                 dataKey="date"
                 interval="preserveStartEnd"
-                tick={{ angle: -45, dx: -5, dy: 10 }}
+                tick={{ angle: -45, dx: -5, dy: 10, fontSize: 15 }}
                 tickFormatter={(date) => {
                   const parsedDate = new Date(date);
                   return parsedDate.toLocaleDateString("en-US", {
@@ -52,13 +52,13 @@ function HistoricalPrices() {
                   });
                 }}
               />
-              <YAxis />
+              <YAxis tick={{ fontSize: 15 }} />
               <Tooltip />
               <Legend wrapperStyle={{ paddingTop: 20 }} />
               <Line
                 type="linear"
                 dataKey="close"
-                stroke="#8884d8"
+                stroke="#2f21a7"
                 strokeWidth={2}
                 dot={false}
               />
