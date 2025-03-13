@@ -2,19 +2,31 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 function Navbar() {
   return (
-    <nav className="">
-      <NavLink to="/" className="">
+    <nav className="flex flex-row justify-evenly ">
+      <NavLink
+        to="/"
+        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer "
+      >
         {" "}
         home
       </NavLink>
-      <NavLink to="/StocksAndA" className="">
-        StocksAndAnalyses
+      <NavLink
+        to="/StocksAndA"
+        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
+      >
+        Playlists
       </NavLink>
-      <NavLink to="/recommend" className="">
+      <NavLink
+        to="/recommend"
+        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
+      >
         {" "}
         Recommend
       </NavLink>
-      <NavLink to="/contact" className="">
+      <NavLink
+        to="/contact"
+        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
+      >
         {" "}
         Contact
       </NavLink>
