@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home";
 import Company from "../pages/company";
-import Contact from "../pages/Contact";
 import StocksAndA from "../pages/StocksAndA";
 
 const router = createBrowserRouter([
@@ -22,10 +21,6 @@ const router = createBrowserRouter([
       {
         path: "Company",
         element: <Company />,
-      },
-      {
-        path: "contact",
-        element: <Contact />,
       },
     ],
   },

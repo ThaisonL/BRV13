@@ -8,27 +8,20 @@ function Navbar() {
         className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer "
       >
         {" "}
-        home
+        Home
       </NavLink>
       <NavLink
         to="/StocksAndA"
         className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
       >
-        Playlists
+        Stock Charts
       </NavLink>
       <NavLink
         to="/company"
-        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
+        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer text"
       >
         {" "}
         Company
-      </NavLink>
-      <NavLink
-        to="/contact"
-        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
-      >
-        {" "}
-        Contact
       </NavLink>
     </nav>
   );

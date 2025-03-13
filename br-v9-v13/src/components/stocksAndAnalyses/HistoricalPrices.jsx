@@ -29,7 +29,9 @@ function HistoricalPrices() {
 
   return (
     <section className="flex items-center justify-center flex-col w-full">
-      <h2 className="text-m lg:text-xl mb-0.5">Historical Prices (in $)</h2>
+      <h2 className="text-m font-bold lg:text-xl mb-0.5">
+        Historical Prices (in $)
+      </h2>
       {data?.historical ? (
         <section className="flex justify-center w-11/12 pt-5 h-[425px] bg-[#fcfcfc] rounded-lg shadow-lg">
           <ResponsiveContainer width="90%" height={400}>
