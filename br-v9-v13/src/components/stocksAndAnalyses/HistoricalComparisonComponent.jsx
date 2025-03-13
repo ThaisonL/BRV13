@@ -93,7 +93,7 @@ function HistoricalComparisonComponent() {
                   : [0, (dataMax) => Math.ceil(dataMax * 1.1)]
               }
               tickCount={8}
-              tick={{ fontSize: 15 }}
+              tick={{ fontSize: 16 }}
               allowDecimals={true}
               scale="linear"
               tickFormatter={(value) => Number(value.toPrecision(4))}

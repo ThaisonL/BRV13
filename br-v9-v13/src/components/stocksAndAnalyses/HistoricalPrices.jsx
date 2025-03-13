@@ -52,7 +52,7 @@ function HistoricalPrices() {
                   });
                 }}
               />
-              <YAxis tick={{ fontSize: 15 }} />
+              <YAxis tick={{ fontSize: 16 }} />
               <Tooltip />
               <Legend wrapperStyle={{ paddingTop: 20 }} />
               <Line
