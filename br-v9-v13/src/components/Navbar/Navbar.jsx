@@ -17,11 +17,11 @@ function Navbar() {
         Playlists
       </NavLink>
       <NavLink
-        to="/recommend"
+        to="/company"
         className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
       >
         {" "}
-        Recommend
+        Company
       </NavLink>
       <NavLink
         to="/contact"

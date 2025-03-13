@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home";
-import Recommend from "../pages/Recommend";
+import Company from "../pages/company";
 import Contact from "../pages/Contact";
 import StocksAndA from "../pages/StocksAndA";
 
@@ -20,8 +20,8 @@ const router = createBrowserRouter([
         element: <StocksAndA />,
       },
       {
-        path: "recommend",
-        element: <Recommend />,
+        path: "Company",
+        element: <Company />,
       },
       {
         path: "contact",
