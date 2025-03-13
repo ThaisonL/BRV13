@@ -25,10 +25,12 @@ const AppleStock = () => {
   }
 
   return (
-    <section className="flex flex-col justify-center items-center">
-      <h2>AAPL Stock Price Change over time</h2>
+    <section className=" w-11/12 flex flex-col mt-7 mb-7 p-3.5 justify-center items-center box-content shadow-lg bg-white rounded-md">
+      <h2 className=" font-bold text-3xl md:text-4xl lg:text-5xl justify-center items-center">
+        AAPL Stock Price Change over time
+      </h2>
 
-      <ul className="flex flex-row flex-wrap m-2 p-2 gap-1">
+      <ul className="flex flex-row flex-wrap m-2 p-2 gap-1 justify-center items-center">
         <li className="rounded-2xl">
           1 Day:{" "}
           <span className={getIndicatorColor(priceChange["1D"])}>

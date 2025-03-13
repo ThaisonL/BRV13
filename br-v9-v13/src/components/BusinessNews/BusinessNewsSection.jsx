@@ -20,9 +20,9 @@ function BusinessNewsSection() {
 
   return (
     <section className="flex flex-row flex-wrap justify-center items-start">
-      <h2 className="w-full text-center text-4xl font-bold">
+      <h3 className="w-full text-center text-3xl md:text-4xl font-bold">
         The latest news in economy
-      </h2>
+      </h3>
       {news.articles.length > 0 ? (
         news.articles.map((newsItem) => (
           <NewsItem key={newsItem.index} new={newsItem} />
