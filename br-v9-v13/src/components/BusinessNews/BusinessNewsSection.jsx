@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchNews } from "../../Reducers/FMPnews";
+import { fetchNews } from "../../Reducers/NewsAPISlice";
 import NewsItem from "./NewsItem";
 
 function BusinessNewsSection() {
@@ -15,7 +15,11 @@ function BusinessNewsSection() {
   if (loading) return <p>Loading news</p>;
   if (error) return <p>Error: {error}</p>;
   if (!news) {
-    return <p>No economic news available.</p>;
+    return (
+      <p className="w-full text-center text-3xl md:text-4xl font-bold">
+        No economic news available.
+      </p>
+    );
   }
 
   return (
@@ -28,7 +32,9 @@ function BusinessNewsSection() {
           <NewsItem key={newsItem.index} new={newsItem} />
         ))
       ) : (
-        <h4>could not find the news you are looking for</h4>
+        <h4 className="w-full text-center text-3xl md:text-4xl font-bold">
+          could not find the news you are looking for
+        </h4>
       )}
     </section>
   );

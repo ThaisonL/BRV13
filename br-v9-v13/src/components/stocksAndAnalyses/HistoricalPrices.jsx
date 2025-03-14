@@ -29,8 +29,8 @@ function HistoricalPrices() {
 
   return (
     <section className="flex items-center justify-center flex-col w-full">
-      <h2 className="text-m font-bold lg:text-xl mb-0.5">
-        Historical Prices (in $)
+      <h2 className="text-xl font-bold  mt-1 lg:text-3xl mb-6.5">
+        Apples stock worth in $ since the turn of the century
       </h2>
       {data?.historical ? (
         <section className="flex justify-center w-11/12 pt-5 h-[425px] bg-[#fcfcfc] rounded-lg shadow-lg">
