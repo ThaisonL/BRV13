@@ -8,8 +8,7 @@ function Company() {
   const [selectedCompanies, setSelectedCompanies] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
   const [filteredCompanies, setFilteredCompanies] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');  // Handle error messages
+  const [error, setError] = useState('');
 
   const apiKey = "TLoYbueDL9RUs9JZfiIKmp7uBFSilOzk";
   const apiUrl = "https://financialmodelingprep.com/api/v3/profile/";
@@ -33,7 +32,6 @@ function Company() {
 
   // Fetch company details via API
   const fetchCompanyDetails = async (companySymbol) => {
-    setLoading(true);
     setError('');  // Reset previous error messages
     try {
       const response = await fetch(`${apiUrl}${companySymbol}?apikey=${apiKey}`);
@@ -58,14 +56,12 @@ function Company() {
         setQuery('');
         setShowDropdown(false);
       } else {
-        setError('No company details found for the given symbol');
+        setError('No company details found for the current search, try again');
       }
     } catch (error) {
       // Catch both network errors and other API-related issues
       console.error('Error fetching company data:', error);
       setError('Something went wrong. Try again later.');
-    } finally {
-      setLoading(false);
     }
   };
 
@@ -90,7 +86,7 @@ function Company() {
           filteredCompanies={filteredCompanies}
           fetchCompanyDetails={fetchCompanyDetails}
           setShowDropdown={setShowDropdown}
-          error={error}  // Pass the error message to CompanySearchInput
+          error={error} 
         />
       </section>
 
