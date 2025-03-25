@@ -71,9 +71,9 @@ function Company() {
   };
 
   return (
-    <main className={`w-full min-h-screen p-4 ${darkMode ? 'bg-gray-800' : 'bg-white'} ${darkMode ? 'text-white' : 'text-black'}`}>
-      <header className="text-center mb-6">
-        <h1 className="text-4xl font-bold">{darkMode ? "Dark Mode" : "Light Mode"} Nasdaq Company Search</h1>
+<main className={`w-full min-h-screen p-4 ${darkMode ? 'bg-gray-800 text-white' : 'bg-[#EBE9E9] text-black'}`}>
+<header className="text-center mb-6">
+        <h1 className="text-3xl md:text-4xl font-serif">{darkMode ? "" : ""} Nasdaq Company Search</h1>
       </header>
 
       <section>

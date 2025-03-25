@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const Footer = ({ darkMode }) => {
   const currentYear = new Date().getFullYear();
-
-  const githubIcon = darkMode ? "/Icons/links-dark/Github.png" : "/Icons/links-light/Github.png";
-  const linkedinIcon = darkMode ? "/Icons/links-dark/Linkedin.png" : "/Icons/links-light/Linkedin.png";
+  
+  const githubIcon = darkMode ? "/Icons/links-light/Github.png" : "/Icons/links-dark/Github.png";
+  const linkedinIcon = darkMode ? "/Icons/links-light/Linkedin.png" : "/Icons/links-dark/Linkedin.png";
 
   return (
     <footer className={`w-full py-4 ${darkMode ? "bg-gray-700 text-white" : "bg-[#faebd7] text-black"}`}>

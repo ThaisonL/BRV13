@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchHistoricalPrices } from "../../Reducers/historicalPricesSlice";
+import { useOutletContext } from "react-router-dom";
 import {
   LineChart,
   Line,
@@ -18,6 +19,8 @@ function HistoricalPrices() {
     (state) => state.historicalPrices
   );
 
+  const { darkMode } = useOutletContext();
+
   useEffect(() => {
     if (!data || data.length === 0) {
       dispatch(fetchHistoricalPrices());
@@ -29,11 +32,17 @@ function HistoricalPrices() {
 
   return (
     <section className="flex items-center justify-center flex-col w-full">
-      <h2 className="text-white text-xl font-bold  mt-1 lg:text-3xl mb-6.5">
+      <h2 className={`text-xl font-bold mt-1 lg:text-3xl mb-6.5 ${
+        darkMode ? "text-white" : "text-black"
+      }`}>
         Apples stock worth in $ since the turn of the century
       </h2>
       {data?.historical ? (
-        <section className="flex justify-center w-11/12 pt-5 h-[425px]  bg-[rgb(55,65,81)] rounded-lg shadow-lg">
+        <section
+          className={`flex justify-center w-11/12 pt-5 h-[425px] rounded-lg shadow-lg ${
+            darkMode ? "bg-gray-800" : "bg-gray-200"
+          }`}
+        >
           <ResponsiveContainer width="90%" height={400}>
             <LineChart
               data={[...data.historical]
@@ -41,11 +50,17 @@ function HistoricalPrices() {
                 .reverse()
                 .filter((_, index) => index % 5 === 0)}
             >
-              <CartesianGrid strokeDasharray="3 3" />
+              <CartesianGrid strokeDasharray="3 3" stroke={darkMode ? "#444" : "#ccc"} />
               <XAxis
                 dataKey="date"
                 interval="preserveStartEnd"
-                tick={{ angle: -45, dx: -5, dy: 10, fontSize: 15, fill: "white" }}
+                tick={{
+                  angle: -45,
+                  dx: -5,
+                  dy: 10,
+                  fontSize: 15,
+                  fill: darkMode ? "white" : "black",
+                }}
                 tickFormatter={(date) => {
                   const parsedDate = new Date(date);
                   return parsedDate.toLocaleDateString("en-US", {
@@ -54,13 +69,13 @@ function HistoricalPrices() {
                   });
                 }}
               />
-              <YAxis tick={{ fontSize: 16, fill: "white" }} />
+              <YAxis tick={{ fontSize: 16, fill: darkMode ? "white" : "black" }} />
               <Tooltip />
-              <Legend wrapperStyle={{ paddingTop: 20 }} />
+              <Legend wrapperStyle={{ paddingTop: 20, color: darkMode ? "white" : "black" }} />
               <Line
                 type="linear"
                 dataKey="close"
-                stroke="white"
+                stroke={darkMode ? "white" : "black"}
                 strokeWidth={2}
                 dot={false}
               />
@@ -68,7 +83,7 @@ function HistoricalPrices() {
           </ResponsiveContainer>
         </section>
       ) : (
-        <p>No data available</p>
+        <p className={darkMode ? "text-white" : "text-black"}>No data available</p>
       )}
     </section>
   );

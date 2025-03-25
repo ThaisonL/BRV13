@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../../Reducers/NewsAPISlice";
 import NewsItem from "./NewsItem";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext } from "react-router-dom"; // Hämta Outlet context
 
 function BusinessNewsSection() {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ function BusinessNewsSection() {
   }
 
   return (
-    <section className={`flex flex-row flex-wrap justify-center items-start ${darkMode ? "bg-gray-800 text-white" : "bg-white text-black"}`}>
+    <section className={`flex flex-row flex-wrap justify-center items-start ${darkMode ? "bg-[rgb(55,65,81)]text-white" : "bg-white text-black"}`}>
       <h3 className="w-full text-center text-3xl md:text-4xl font-bold">
         The latest news in economy
       </h3>
