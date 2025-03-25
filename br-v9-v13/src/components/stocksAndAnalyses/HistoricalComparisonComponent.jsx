@@ -53,7 +53,7 @@ function HistoricalComparisonComponent() {
 
   return (
     <section className="flex flex-col items-center w-full max-w-2xl">
-      <h2 className="text-m lg:text-xl font-bold">
+      <h2 className="text-white text-m lg:text-xl font-bold">
         Historical Comparison of Financial Metrics
       </h2>
       <select
@@ -67,7 +67,7 @@ function HistoricalComparisonComponent() {
           </option>
         ))}
       </select>
-      <section className="flex justify-center w-11/12 pt-5 h-[420px] bg-[#fcfcfc] rounded-lg shadow-lg">
+      <section className="flex justify-center w-11/12 pt-5 h-[420px]  bg-[rgb(55,65,81)] rounded-lg shadow-lg">
         <ResponsiveContainer width="90%" height={400}>
           <LineChart
             data={historicalData}
@@ -77,7 +77,7 @@ function HistoricalComparisonComponent() {
             <XAxis
               dataKey="date"
               interval="preserveStartEnd"
-              tick={{ angle: -45, dx: -5, dy: 10, fontSize: 15 }}
+              tick={{ angle: -45, dx: -5, dy: 10, fontSize: 15, fill: "white", }}
               tickFormatter={(date) => {
                 const parsedDate = new Date(date);
                 return parsedDate.toLocaleDateString("en-US", {
@@ -93,7 +93,11 @@ function HistoricalComparisonComponent() {
                   : [0, (dataMax) => Math.ceil(dataMax * 1.1)]
               }
               tickCount={8}
-              tick={{ fontSize: 16 }}
+              tick={{ 
+                fontSize: 16,
+                fill: "white",
+               }}
+              
               allowDecimals={true}
               scale="linear"
               tickFormatter={(value) => Number(value.toPrecision(4))}
@@ -104,9 +108,8 @@ function HistoricalComparisonComponent() {
             <ReferenceLine
               y={benchmarks[selectedMetric]}
               stroke="red"
-              label="Benchmark"
             />
-            <Line type="linear" dataKey="value" stroke="#2f21a7" />
+            <Line type="linear" dataKey="value" stroke="white" />
             <Line type="basis" dataKey="Benchmark" stroke="#dd0000" />
           </LineChart>
         </ResponsiveContainer>

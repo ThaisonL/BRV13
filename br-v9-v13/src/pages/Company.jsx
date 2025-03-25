@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { useOutletContext } from "react-router-dom";  // Lägg till denna import
 import CompanySearchInput from '../components/CompanyFolder/CompanySearchInput';
 import CompanyCard from '../components/CompanyFolder/CompanyCard';
 import nasdaqCompanies from '../components/CompanyFolder/NasdaqCompanies';
 
 function Company() {
+  const { darkMode } = useOutletContext();  // Hämta darkMode från Outlet context
+
   const [query, setQuery] = useState('');
   const [selectedCompanies, setSelectedCompanies] = useState([]);
   const [showDropdown, setShowDropdown] = useState(false);
@@ -13,7 +16,6 @@ function Company() {
   const apiKey = "TLoYbueDL9RUs9JZfiIKmp7uBFSilOzk";
   const apiUrl = "https://financialmodelingprep.com/api/v3/profile/";
 
-  // Search function
   const handleSearch = (searchQuery) => {
     setQuery(searchQuery);
 
@@ -30,13 +32,11 @@ function Company() {
     }
   };
 
-  // Fetch company details via API
   const fetchCompanyDetails = async (companySymbol) => {
-    setError('');  // Reset previous error messages
+    setError('');
     try {
       const response = await fetch(`${apiUrl}${companySymbol}?apikey=${apiKey}`);
       
-      // Check if the response from API is not ok
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -59,13 +59,11 @@ function Company() {
         setError('No company details found for the current search, try again');
       }
     } catch (error) {
-      // Catch both network errors and other API-related issues
       console.error('Error fetching company data:', error);
       setError('Something went wrong. Try again later.');
     }
   };
 
-  // Remove company from selected list
   const removeCompany = (symbol) => {
     setSelectedCompanies((prevCompanies) =>
       prevCompanies.filter((company) => company.symbol !== symbol)
@@ -73,9 +71,9 @@ function Company() {
   };
 
   return (
-    <main className="w-full min-h-screen p-4 bg-[#faebd7]">
+    <main className={`w-full min-h-screen p-4 ${darkMode ? 'bg-gray-800' : 'bg-white'} ${darkMode ? 'text-white' : 'text-black'}`}>
       <header className="text-center mb-6">
-        <h1 className="text-4xl font-bold">Nasdaq Company Search</h1>
+        <h1 className="text-4xl font-bold">{darkMode ? "Dark Mode" : "Light Mode"} Nasdaq Company Search</h1>
       </header>
 
       <section>
@@ -86,14 +84,18 @@ function Company() {
           filteredCompanies={filteredCompanies}
           fetchCompanyDetails={fetchCompanyDetails}
           setShowDropdown={setShowDropdown}
-          error={error} 
+          error={error}
         />
       </section>
 
       <section className="mt-6 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-        {/* Loop through selected companies and render a card */}
         {selectedCompanies.map((company) => (
-          <CompanyCard key={company.symbol} company={company} removeCompany={removeCompany} />
+          <CompanyCard
+            key={company.symbol}
+            company={company}
+            removeCompany={removeCompany}
+            darkMode={darkMode}
+          />
         ))}
       </section>
     </main>

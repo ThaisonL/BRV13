@@ -25,19 +25,19 @@ const AppleStock = () => {
   }
 
   return (
-    <section className=" w-11/12 flex flex-col mt-7 mb-7 p-3.5 justify-center items-center box-content shadow-lg bg-white rounded-md">
-      <h2 className=" font-bold text-3xl md:text-4xl lg:text-5xl justify-center items-center">
+    <section className=" w-11/12 flex flex-col mt-7 mb-7 p-3.5 justify-center items-center box-content shadow-lg bg-[rgb(55,65,81)] rounded-md">
+      <h2 className="text-white font-bold text-3xl md:text-4xl lg:text-5xl justify-center items-center">
         AAPL Stock Price Change over time
       </h2>
 
       <ul className="flex flex-row flex-wrap m-2 p-2 gap-1 justify-center items-center">
-        <li className="rounded-2xl">
+        <li className="rounded-2xl text-white">
           1 Day:{" "}
           <span className={getIndicatorColor(priceChange["1D"])}>
             {priceChange?.["1D"] ?? "N/A"}%
           </span>
         </li>
-        <li className="rounded-2xl">
+        <li className="rounded-2xl text-white">
           5 Day:{" "}
           <span className={getIndicatorColor(priceChange["5D"])}>
             {priceChange?.["5D"] ?? "N/A"}%
@@ -46,19 +46,19 @@ const AppleStock = () => {
       </ul>
 
       <ul className="flex flex-row flex-wrap m-2 p-2 gap-1 justify-center items-center">
-        <li className="rounded-2xl">
+        <li className="rounded-2xl text-white">
           1 Month:{" "}
           <span className={getIndicatorColor(priceChange["1M"])}>
             {priceChange?.["1M"] ?? "N/A"}%
           </span>
         </li>
-        <li className="rounded-2xl">
+        <li className="rounded-2xl text-white">
           3 Months:{" "}
           <span className={getIndicatorColor(priceChange["3M"])}>
             {priceChange?.["3M"] ?? "N/A"}%
           </span>
         </li>
-        <li className="rounded-2xl">
+        <li className="rounded-2xl text-white">
           6 Months:{" "}
           <span className={getIndicatorColor(priceChange["6M"])}>
             {priceChange?.["6M"] ?? "N/A"}%
@@ -67,31 +67,31 @@ const AppleStock = () => {
       </ul>
 
       <ul className="flex flex-row flex-wrap m-2 p-2 gap-1 justify-center items-center">
-        <li className="rounded-2xl">
+        <li className="rounded-2xl text-white">
           Year to Date:{" "}
           <span className={getIndicatorColor(priceChange["ytd"])}>
             {priceChange?.["ytd"] ?? "N/A"}%
           </span>
         </li>
-        <li className="rounded-2xl">
+        <li className="rounded-2xl text-white">
           1 Year:{" "}
           <span className={getIndicatorColor(priceChange["1Y"])}>
             {priceChange?.["1Y"] ?? "N/A"}%
           </span>
         </li>
-        <li className="rounded-2xl">
+        <li className="rounded-2xl text-white">
           3 Years:{" "}
           <span className={getIndicatorColor(priceChange["3Y"])}>
             {priceChange?.["3Y"] ?? "N/A"}%
           </span>
         </li>
-        <li className="rounded-2xl">
+        <li className="rounded-2xl text-white">
           5 Year:{" "}
           <span className={getIndicatorColor(priceChange["5Y"])}>
             {priceChange?.["5Y"] ?? "N/A"}%
           </span>
         </li>
-        <li className="rounded-2xl">
+        <li className="rounded-2xl text-white">
           10 Years:{" "}
           <span className={getIndicatorColor(priceChange["10Y"])}>
             {priceChange?.["10Y"] ?? "N/A"}%

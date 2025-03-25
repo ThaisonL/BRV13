@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const API_KEY = "0db69991ed83415fa6f591a1924e45ef";
+const API_KEY = "1006e9f332db40bd8553b27720785488";
 const BASE_URL =
   "https://newsapi.org/v2/top-headlines?category=business&apiKey=";
 

@@ -23,8 +23,8 @@ function FinancialHealthIndicator() {
   const metrics = data[0];
 
   return (
-    <section className="flex justify-center flex-col mt-8 md:mr-5 bg-[#fcfcfc] p-5 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105">
-      <h2 className="mb-4 text-m font-bold lg:text-xl">
+    <section className="flex justify-center flex-col mt-8 md:mr-5  bg-[rgb(55,65,81)] p-5 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105">
+      <h2 className="text-white mb-4 text-m font-bold lg:text-xl">
         Financial Health Indicators
       </h2>
       <ul className="text-[15px] lg:text-[17px]">
