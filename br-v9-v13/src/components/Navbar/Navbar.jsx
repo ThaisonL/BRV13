@@ -1,26 +1,25 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+
 function Navbar() {
   return (
-    <nav className="flex flex-row justify-evenly ">
+    <nav className="flex flex-row justify-center md:justify-end w-full h-16">
       <NavLink
         to="/"
-        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer "
+        className="flex items-center justify-center rounded-2xl px-6 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer w-32 text-center"
       >
-        {" "}
         Home
       </NavLink>
       <NavLink
         to="/StocksAndA"
-        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer"
+        className="flex items-center justify-center rounded-2xl px-6 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer w-32 text-center"
       >
         Stock Charts
       </NavLink>
       <NavLink
         to="/company"
-        className="rounded-2xl px-4 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer text"
+        className="flex items-center justify-center rounded-2xl px-6 py-3 m-2 bg-yellow-500 hover:bg-yellow-300 cursor-pointer w-32 text-center"
       >
-        {" "}
         Company
       </NavLink>
     </nav>
