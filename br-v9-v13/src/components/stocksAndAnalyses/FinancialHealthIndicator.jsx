@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchKeyMetrics } from "../../Reducers/keyMetricsSlice";
+import { useOutletContext } from "react-router-dom";
 
-const getIndicatorColor = (value, goodThreshold, warningThreshold) => {
-  if (value >= goodThreshold) return "text-green-500";
-  if (value >= warningThreshold) return "text-yellow-500";
-  return "text-red-500";
+const getIndicatorColor = (value, goodThreshold, warningThreshold, darkMode) => {
+  if (value >= goodThreshold) return darkMode ? "text-green-500" : "text-green-600";
+  if (value >= warningThreshold) return darkMode ? "text-yellow-300" : "text-yellow-500";
+  return darkMode ? "text-red-500" : "text-red-700";
 };
 
 function FinancialHealthIndicator() {
   const dispatch = useDispatch();
   const { data, status, error } = useSelector((state) => state.keyMetrics);
+
+  const { darkMode } = useOutletContext();
 
   useEffect(() => {
     dispatch(fetchKeyMetrics());
@@ -23,29 +26,30 @@ function FinancialHealthIndicator() {
   const metrics = data[0];
 
   return (
-    <section className="flex justify-center flex-col mt-8 md:mr-5  bg-[rgb(55,65,81)] p-5 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105">
-      <h2 className="text-white mb-4 text-m font-bold lg:text-xl">
+    <section
+      className={`flex justify-center flex-col mt-8 md:mr-5 p-5 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 
+      ${darkMode ? ' bg-[rgb(55,65,81)] text-white': 'bg-[#FAEBd7] text-black'}`}
+    >
+      <h2 className="mb-4 text-m font-bold lg:text-xl">
         Financial Health Indicators
       </h2>
       <ul className="text-[15px] lg:text-[17px]">
-        <li className={getIndicatorColor(metrics.currentRatio, 1.5, 1.0)}>
+        <li className={getIndicatorColor(metrics.currentRatio, 1.5, 1.0, darkMode)}>
           Current Ratio: {metrics.currentRatio?.toFixed(2)}
         </li>
-        <li className={getIndicatorColor(metrics.debtToEquity, 1.0, 2.0)}>
+        <li className={getIndicatorColor(metrics.debtToEquity, 1.0, 2.0, darkMode)}>
           Debt to Equity: {metrics.debtToEquity?.toFixed(2)}
         </li>
-        <li className={getIndicatorColor(metrics.roe, 0.15, 0.1)}>
+        <li className={getIndicatorColor(metrics.roe, 0.15, 0.1, darkMode)}>
           Return on Equity (ROE): {(metrics.roe * 100)?.toFixed(2)}%
         </li>
-        <li className={getIndicatorColor(metrics.netDebtToEBITDA, 2.0, 3.5)}>
+        <li className={getIndicatorColor(metrics.netDebtToEBITDA, 2.0, 3.5, darkMode)}>
           Net Debt to EBITDA: {metrics.netDebtToEBITDA?.toFixed(2)}
         </li>
-        <li className={getIndicatorColor(metrics.earningsYield, 0.05, 0.03)}>
+        <li className={getIndicatorColor(metrics.earningsYield, 0.05, 0.03, darkMode)}>
           Earnings Yield: {(metrics.earningsYield * 100)?.toFixed(2)}%
         </li>
-        <li
-          className={getIndicatorColor(metrics.freeCashFlowYield, 0.05, 0.03)}
-        >
+        <li className={getIndicatorColor(metrics.freeCashFlowYield, 0.05, 0.03, darkMode)}>
           Free Cash Flow Yield: {(metrics.freeCashFlowYield * 100)?.toFixed(2)}%
         </li>
       </ul>

@@ -40,7 +40,7 @@ function HistoricalPrices() {
       {data?.historical ? (
         <section
           className={`flex justify-center w-11/12 pt-5 h-[425px] rounded-lg shadow-lg ${
-            darkMode ? "bg-gray-800" : "bg-gray-200"
+            darkMode ? "bg-gray-700" : "bg-[#faebd7]"
           }`}
         >
           <ResponsiveContainer width="90%" height={400}>
@@ -50,7 +50,7 @@ function HistoricalPrices() {
                 .reverse()
                 .filter((_, index) => index % 5 === 0)}
             >
-              <CartesianGrid strokeDasharray="3 3" stroke={darkMode ? "#444" : "#ccc"} />
+              <CartesianGrid strokeDasharray="3 3" stroke={darkMode ? "#fefefe" : "#ccc"} />
               <XAxis
                 dataKey="date"
                 interval="preserveStartEnd"

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchKeyMetrics } from "../../Reducers/keyMetricsSlice";
+import { useOutletContext } from "react-router-dom";
 import {
   LineChart,
   Line,
@@ -17,6 +18,8 @@ function HistoricalComparisonComponent() {
   const dispatch = useDispatch();
   const { data, status, error } = useSelector((state) => state.keyMetrics);
   const [selectedMetric, setSelectedMetric] = useState("currentRatio");
+
+  const { darkMode } = useOutletContext();  // Get darkMode state
 
   useEffect(() => {
     dispatch(fetchKeyMetrics());
@@ -52,14 +55,19 @@ function HistoricalComparisonComponent() {
     .reverse();
 
   return (
-    <section className="flex flex-col items-center w-full max-w-2xl">
-      <h2 className="text-white text-m lg:text-xl font-bold">
+    <section
+      className={`flex flex-col items-center w-full max-w-2xl 
+      ${darkMode ? "bg-gray-800 text-white" : "bg-white text-black"}`}
+    >
+      <h2 className="text-xl font-bold mb-4">
         Historical Comparison of Financial Metrics
       </h2>
       <select
-        className="mt-4 mb-4 p-2 border rounded text-[14px] bg-[#fcfcfc]"
+        className={`mt-4 mb-4 p-2 border rounded text-[14px] 
+        ${darkMode ? "bg-gray-700 text-white" : "bg-[#fcfcfc] text-black"}`}
         value={selectedMetric}
         onChange={(e) => setSelectedMetric(e.target.value)}
+        aria-label = "Dropdown menu for Financal Health indicator"
       >
         {Object.keys(benchmarks).map((metric) => (
           <option key={metric} value={metric}>
@@ -67,17 +75,29 @@ function HistoricalComparisonComponent() {
           </option>
         ))}
       </select>
-      <section className="flex justify-center w-11/12 pt-5 h-[420px]  bg-[rgb(55,65,81)] rounded-lg shadow-lg">
+      <section
+        className={`flex justify-center w-11/12 pt-5 h-[420px] rounded-lg shadow-lg 
+        ${darkMode ? "bg-gray-700" : "bg-[#faebd7]"}`}
+      >
         <ResponsiveContainer width="90%" height={400}>
           <LineChart
             data={historicalData}
             margin={{ top: 20, right: 30, left: 20, bottom: 20 }}
           >
-            <CartesianGrid strokeDasharray="3 3" />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              stroke={darkMode ? "#fefefe" : "#ccc"}
+            />
             <XAxis
               dataKey="date"
               interval="preserveStartEnd"
-              tick={{ angle: -45, dx: -5, dy: 10, fontSize: 15, fill: "white", }}
+              tick={{
+                angle: -45,
+                dx: -5,
+                dy: 10,
+                fontSize: 15,
+                fill: darkMode ? "white" : "black",
+              }}
               tickFormatter={(date) => {
                 const parsedDate = new Date(date);
                 return parsedDate.toLocaleDateString("en-US", {
@@ -93,24 +113,30 @@ function HistoricalComparisonComponent() {
                   : [0, (dataMax) => Math.ceil(dataMax * 1.1)]
               }
               tickCount={8}
-              tick={{ 
+              tick={{
                 fontSize: 16,
-                fill: "white",
-               }}
-              
+                fill: darkMode ? "white" : "black",
+              }}
               allowDecimals={true}
               scale="linear"
               tickFormatter={(value) => Number(value.toPrecision(4))}
             />
-
             <Tooltip />
             <Legend wrapperStyle={{ paddingTop: 20 }} />
             <ReferenceLine
               y={benchmarks[selectedMetric]}
               stroke="red"
             />
-            <Line type="linear" dataKey="value" stroke="white" />
-            <Line type="basis" dataKey="Benchmark" stroke="#dd0000" />
+            <Line
+              type="linear"
+              dataKey="value"
+              stroke={darkMode ? "white" : "black"}
+            />
+            <Line
+              type="basis"
+              dataKey="Benchmark"
+              stroke={darkMode ? "#b33a3a" : "#b33a3a"}
+            />
           </LineChart>
         </ResponsiveContainer>
       </section>
