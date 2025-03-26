@@ -7,13 +7,13 @@ import "./App.css";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
-  // Hämta darkMode från localStorage när appen laddas
+  //fetches darkMode from localstorage when app is loading
   useEffect(() => {
     const storedDarkMode = localStorage.getItem('darkMode') === 'true';
     setDarkMode(storedDarkMode);
   }, []);
 
-  // Uppdatera localStorage och body klass när dark mode ändras
+  // uppdates localstorge and body class when dark mode changes
   useEffect(() => {
     localStorage.setItem('darkMode', darkMode);
     if (darkMode) {

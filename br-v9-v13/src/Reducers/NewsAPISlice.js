@@ -1,9 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+// API for fetching business news
 const API_KEY = "1006e9f332db40bd8553b27720785488";
-const BASE_URL =
-  "https://newsapi.org/v2/top-headlines?category=business&apiKey=";
+const BASE_URL = "https://newsapi.org/v2/top-headlines?category=business&apiKey=";
 
+// Async function to fetch news data
 export const fetchNews = createAsyncThunk(
   "news/fetchNews",
   async (thunkAPI) => {
@@ -18,6 +19,7 @@ export const fetchNews = createAsyncThunk(
   }
 );
 
+// News slice to manage state
 const newsSlice = createSlice({
   name: "news",
   initialState: {

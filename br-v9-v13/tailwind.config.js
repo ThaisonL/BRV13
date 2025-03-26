@@ -7,10 +7,9 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                grape: "rgba(114, 35 ,204)", // Exempel på en anpassad färg
             },
         },
     },
     plugins: [],
-    darkMode: 'class', // Aktiverar Dark Mode via 'dark' klass
+    darkMode: 'class', // enables Dark Mode with ' dark ' class
 };

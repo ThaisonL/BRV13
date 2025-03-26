@@ -1,8 +1,10 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+// API for fetching key metrics
 const apiKey = "4VaQvzEdvbD227Udssfv4wn00zgHLV3b";
 const key_metrics_url = `https://financialmodelingprep.com/api/v3/key-metrics/AAPL?apikey=${apiKey}`;
 
+// Load key metrics from local storage
 const loadFromLocalStorage = () => {
   try {
     const data = localStorage.getItem("keyMetrics");
@@ -13,6 +15,7 @@ const loadFromLocalStorage = () => {
   }
 };
 
+// Save key metrics to local storage
 const saveToLocalStorage = (data) => {
   try {
     localStorage.setItem("keyMetrics", JSON.stringify(data));
@@ -21,6 +24,7 @@ const saveToLocalStorage = (data) => {
   }
 };
 
+// Async function to fetch key financial metrics
 export const fetchKeyMetrics = createAsyncThunk(
   "keyMetrics/fetch",
   async () => {
@@ -34,6 +38,7 @@ export const fetchKeyMetrics = createAsyncThunk(
   }
 );
 
+// Slice to manage key financial metrics state
 const keyMetricsSlice = createSlice({
   name: "keyMetrics",
   initialState: {
