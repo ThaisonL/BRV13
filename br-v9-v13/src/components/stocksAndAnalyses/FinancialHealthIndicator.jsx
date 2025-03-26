@@ -30,7 +30,7 @@ function FinancialHealthIndicator() {
       className={`flex justify-center flex-col mt-8 md:mr-5 p-5 rounded-lg shadow-md transform transition-transform duration-300 hover:scale-105 
       ${darkMode ? ' bg-[rgb(55,65,81)] text-white': 'bg-[#FAEBd7] text-black'}`}
     >
-      <h2 className="mb-4 text-m font-bold lg:text-xl">
+      <h2 className="mb-4 text-m font-serif lg:text-xl">
         Financial Health Indicators
       </h2>
       <ul className="text-[15px] lg:text-[17px]">

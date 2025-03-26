@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-function Navbar() {
+function Navbar( ) {
   return (
     <nav className="flex flex-row justify-center md:justify-end w-full h-16">
       <NavLink
@@ -22,6 +22,8 @@ function Navbar() {
       >
         Company
       </NavLink>
+
+      
     </nav>
   );
 }

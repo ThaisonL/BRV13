@@ -32,7 +32,7 @@ function HistoricalPrices() {
 
   return (
     <section className="flex items-center justify-center flex-col w-full">
-      <h2 className={`text-xl font-bold mt-1 lg:text-3xl mb-6.5 ${
+      <h2 className={` text-xl font-serif mt-1 lg:text-3xl mb-6.5 ${
         darkMode ? "text-white" : "text-black"
       }`}>
         Apples stock worth in $ since the turn of the century

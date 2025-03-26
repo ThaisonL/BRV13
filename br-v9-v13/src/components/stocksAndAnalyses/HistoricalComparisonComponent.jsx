@@ -59,7 +59,7 @@ function HistoricalComparisonComponent() {
       className={`flex flex-col items-center w-full max-w-2xl 
       ${darkMode ? "bg-gray-800 text-white" : "bg-white text-black"}`}
     >
-      <h2 className="text-xl font-bold mb-4">
+      <h2 className="text-xl font-serif mb-4">
         Historical Comparison of Financial Metrics
       </h2>
       <select

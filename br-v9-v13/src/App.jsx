@@ -28,15 +28,15 @@ function App() {
   };
 
   return (
-    <div className={`min-h-screen ${darkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
-      {/* Skickar darkMode och toggleDarkMode till Header */}
+<>
+      {/* exports darkMode nad toggleDarkMode to header */}
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       
-      {/* Skickar darkMode via Outlet context så att alla sidor kan använda det */}
+      {/*  Exports darkMode through Outlet context, allowing all child components to receive the prop */}
       <Outlet context={{ darkMode }} />
       
       <Footer darkMode={darkMode} />
-    </div>
+</>
   );
 }
 
