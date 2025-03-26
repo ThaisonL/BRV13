@@ -7,36 +7,32 @@ import "./App.css";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
 
-  //fetches darkMode from localstorage when app is loading
+  // This useEffect runs only once on initial render
   useEffect(() => {
-    const storedDarkMode = localStorage.getItem('darkMode') === 'true';
-    setDarkMode(storedDarkMode);
+
+    console.log("Initial render - darkMode is set to:", darkMode); // Debugging log
   }, []);
 
-  // uppdates localstorge and body class when dark mode changes
+  // This effect handles updating dark mode settings whenever the state changes
   useEffect(() => {
-    localStorage.setItem('darkMode', darkMode);
-    if (darkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [darkMode]);
+    console.log("darkMode changed to:", darkMode); // Debugging log
+  }, [darkMode]); // This runs whenever darkMode changes
 
+  // Function to toggle dark mode
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    setDarkMode((prevMode) => !prevMode); // Toggle between true/false
   };
 
   return (
-<>
-      {/* exports darkMode nad toggleDarkMode to header */}
+    <>
+      {/* Exports darkMode and toggleDarkMode to Header */}
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
       
-      {/*  Exports darkMode through Outlet context, allowing all child components to receive the prop */}
+      {/* Exports darkMode through Outlet context, allowing all child components to receive the prop */}
       <Outlet context={{ darkMode }} />
       
       <Footer darkMode={darkMode} />
-</>
+    </>
   );
 }
 
