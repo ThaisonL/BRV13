@@ -23,24 +23,6 @@ Vi använde oss av Vite, React, React-router, redux-toolkit, Tailwind, Rechats.
 
 4. Skriv npm run dev i terminalen och följ länken för att starta projektet lokalt.
 
-<<<<<<< HEAD
-## Tillägg Individuell
-1. Ny funktion
-
-En knapp har lagts till i gränssnittet som växlar mellan mörk och ljus bakgrund. Detta uppdaterar tillståndet för dark mode via React's state management. darkMode-tillståndet skickas till alla relevanta komponenter via Outlet. När huvudkomponenten uppdaterar sitt tillstånd, skickas det vidare till alla barnkomponenter genom Outlet-kontexten. Detta gör att hela sidan dynamiskt anpassar sig beroende på användarens val av färgtema.
-
-2. Övriga ändringar
-
-Förbättrad tillgänglighet och tangentbordsnavigering
-ARIA-attribut har tillämpats för att säkerställa att webbplatsen är tillgänglig för användare som använder skärmläsare. Tangentbordsnavigering har implementerats för att ge användare möjlighet att navigera mellan interaktiva element (t.ex. knappar, länkar och formulärfält) med enbart tangentbordet. Fokusmarkering på interaktiva element gör det lättare för användaren att följa vilka delar av webbplatsen som är aktiva.
-
-Refaktorering av gammal kod
-Tailwind CSS har använts för att finjustera designen och säkerställa att webbplatsen är responsiv på alla skärmstorlekar.
-Media queries och flexbox har implementerats för att skapa en enhetlig och flexibel layout. 
-Detta gör att webbplatsen fungerar lika bra på både stora och små skärmar. 
-LocalStorage har implementeras för att lagra användardatan lokalt som då bevarar informationen även efter att sidan har laddats om.
-
-=======
 
 Tillägg Individuell
 Ny Funktion: Sorteringsfunktionalitet
@@ -66,4 +48,3 @@ En knapp har lagts till i gränssnittet som växlar mellan mörk och ljus bakgru
 Förbättrad tillgänglighet och tangentbordsnavigering ARIA-attribut har tillämpats för att säkerställa att webbplatsen är tillgänglig för användare som använder skärmläsare. Tangentbordsnavigering har implementerats för att ge användare möjlighet att navigera mellan interaktiva element (t.ex. knappar, länkar och formulärfält) med enbart tangentbordet. Fokusmarkering på interaktiva element gör det lättare för användaren att följa vilka delar av webbplatsen som är aktiva.
 
 Refaktorering av gammal kod Tailwind CSS har använts för att finjustera designen och säkerställa att webbplatsen är responsiv på alla skärmstorlekar. Media queries och flexbox har implementerats för att skapa en enhetlig och flexibel layout. Detta gör att webbplatsen fungerar lika bra på både stora och små skärmar. LocalStorage har implementeras för att lagra användardatan lokalt som då bevarar informationen även efter att sidan har laddats om.
->>>>>>> PL/Individuell
