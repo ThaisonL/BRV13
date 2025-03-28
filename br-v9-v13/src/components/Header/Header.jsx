@@ -14,7 +14,7 @@ function Header({ darkMode, toggleDarkMode }) {
   Dashboard
 </h1>
 
-        {/* Button to apply darkmode/lightmode */}
+        {/* Button to apply darkMode*/}
         <button
           className="absolute top-1 right-1 w-7 h-7 bg-neutral-900 dark:bg-white 
           rounded-full text-black dark:text-black font-semibold

@@ -11,7 +11,7 @@ function CompanyCard({ company, removeCompany }) {
   };
 
   return (
-    <article className={`relative flex-basis-[250px] p-4 shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg mt-10 mb-10 mr-2 
+    <article className={`relative flex-basis-[250px] p-4 shadow-md rounded-lg transition-transform transform hover:scale-105 hover:shadow-lg mt-1 mb-10 mr-2 
       ${darkMode ? "bg-[rgb(55,65,81)] text-white" : "bg-[#faebd7] text-black"}`}>
 
       {/* remove button */}
@@ -25,7 +25,7 @@ function CompanyCard({ company, removeCompany }) {
         ✕
       </button>
 
-      {/* Företagsinformation */}
+      {/* company info */}
       <h2 className="text-lg font-bold mb-2">{company.companyName}</h2>
       <p><strong>Sector:</strong> {company.sector}</p>
       <p><strong>Country:</strong> {company.country}</p>

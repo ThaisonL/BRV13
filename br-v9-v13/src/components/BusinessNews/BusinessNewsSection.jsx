@@ -12,7 +12,7 @@ function BusinessNewsSection() {
   const { darkMode } = useOutletContext();
 
   useEffect(() => {
-    // 
+    // fetches news when component mounts.
     dispatch(fetchNews());
   }, [dispatch]);
 // shows a loading message when loading
@@ -21,7 +21,7 @@ function BusinessNewsSection() {
   // displays error message when error occurs
   if (error) return <p className={`text-center text-2xl ${darkMode ? "text-red-400" : "text-red-600"}`}>Error: {error}</p>;
 
-  // if there is no news availble, show a message
+  // if there is no news available, show a message
   if (!news) {
     return (
       <p className={`w-full text-center text-3xl md:text-4xl font-serif ${darkMode ? "text-white" : "text-black"}`}>

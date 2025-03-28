@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 // API for fetching key metrics
-const apiKey = "4VaQvzEdvbD227Udssfv4wn00zgHLV3b";
+const apiKey = "eYFho6s4OjEyYVslMtVJrmYVI8llxviY";
 const key_metrics_url = `https://financialmodelingprep.com/api/v3/key-metrics/AAPL?apikey=${apiKey}`;
 
 // Load key metrics from local storage

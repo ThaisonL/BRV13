@@ -37,7 +37,7 @@ function NewsItem({ newsItem, darkMode }) {
         href={newsItem.url} // Link to the full article URL
         target="_blank" // Open the link in a new tab
         rel="noopener noreferrer" // Security measure for external links
-        aria-label="External link to full article"
+        aria-label="External link to full article" // accessibility 
       >
         {newsItem.url}
       </a>
