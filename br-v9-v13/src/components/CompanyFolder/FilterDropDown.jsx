@@ -2,7 +2,7 @@ import React from 'react';
 
 function FilterSortDropdown({ setSortOption }) {
     const handleSortChange = (event) => {
-      setSortOption(event.target.value); // Uppdatera valt sorteringsalternativ
+      setSortOption(event.target.value); // updates chosen sort option
     };
   
     return (
@@ -16,8 +16,8 @@ function FilterSortDropdown({ setSortOption }) {
           <option value="companyNameZA">Company name (Z-A)</option>
           <option value="marketCapHighToLow">Marketcap (High to low)</option>
           <option value="marketCapLowToHigh">Marketcap (Low to High)</option>
-          <option value="priceHighToLow">Stockprice (High to low)</option>
-          <option value="priceLowToHigh">Stockprice (Low to High)</option>
+          <option value="priceHighToLow">Stock price (High to low)</option>
+          <option value="priceLowToHigh">Stock price (Low to High)</option>
         </select>
       </section>
     );

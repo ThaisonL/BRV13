@@ -1,30 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-// API for fetching historical stock prices
-const apiKey = "4VaQvzEdvbD227Udssfv4wn00zgHLV3b";
+const apiKey = "eYFho6s4OjEyYVslMtVJrmYVI8llxviY";
 const historical_prices_url = `https://financialmodelingprep.com/api/v3/historical-price-full/AAPL?from=2000-01-01&serietype=line&apikey=${apiKey}`;
 
-// Load historical data from local storage
-const loadFromLocalStorage = () => {
-  try {
-    const data = localStorage.getItem("historicalPrices");
-    return data ? JSON.parse(data) : [];
-  } catch (error) {
-    console.error("Error loading from local storage:", error);
-    return [];
-  }
-};
-
-// Save historical data to local storage
-const saveToLocalStorage = (data) => {
-  try {
-    localStorage.setItem("historicalPrices", JSON.stringify(data));
-  } catch (error) {
-    console.error("Error saving to local storage:", error);
-  }
-};
-
-// Async function to fetch historical stock prices
 export const fetchHistoricalPrices = createAsyncThunk(
   "historicalPrices/fetch",
   async () => {
@@ -33,16 +11,14 @@ export const fetchHistoricalPrices = createAsyncThunk(
       throw new Error("Failed to fetch historical prices");
     }
     const data = await response.json();
-    saveToLocalStorage(data);
-    return data;
+    return data;  // Vi returnerar här utan att spara till localStorage
   }
 );
 
-// Slice to manage historical prices state
 const historicalPricesSlice = createSlice({
   name: "historicalPrices",
   initialState: {
-    data: loadFromLocalStorage(),
+    data: [], // Vi sätter initialt data som en tom array
     status: "idle",
     error: null,
   },
@@ -54,7 +30,7 @@ const historicalPricesSlice = createSlice({
       })
       .addCase(fetchHistoricalPrices.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.data = action.payload;
+        state.data = action.payload;  // Här får vi den data som kommer från API:et
       })
       .addCase(fetchHistoricalPrices.rejected, (state, action) => {
         state.status = "failed";

@@ -16,7 +16,7 @@ function Company() {
   const [error, setError] = useState('');
   const [sortOption, setSortOption] = useState('alphabetical'); // Added sortOption state
 
-  const apiKey = "TLoYbueDL9RUs9JZfiIKmp7uBFSilOzk";
+  const apiKey = "eYFho6s4OjEyYVslMtVJrmYVI8llxviY";
   const apiUrl = "https://financialmodelingprep.com/api/v3/profile/";
 
   // function to handle search input and filter companies
@@ -73,37 +73,37 @@ function Company() {
           // Sort companies by name: A-Z
           const nameA = a.companyName || '';
           const nameB = b.companyName || '';
-          return nameA.localeCompare(nameB);  // A-Z
+          return nameA.localeCompare(nameB);
   
         case 'companyNameZA':
           // Sort companies by name: Z-A
           const nameZ = a.companyName || '';
           const nameX = b.companyName || '';
-          return nameX.localeCompare(nameZ);  // Z-A
+          return nameX.localeCompare(nameZ);
   
         case 'marketCapHighToLow':
           // Sort companies by market cap (high to low)
           const marketCapA = a.mktCap || 0;
           const marketCapB = b.mktCap || 0;
-          return marketCapB - marketCapA;  // High to low
+          return marketCapB - marketCapA;
   
         case 'marketCapLowToHigh':
           // Sort companies by market cap (low to high)
           const marketCapLowA = a.mktCap || 0;
           const marketCapLowB = b.mktCap || 0;
-          return marketCapLowA - marketCapLowB;  // Low to high
+          return marketCapLowA - marketCapLowB;
   
         case 'priceHighToLow':
           // Sort companies by price (high to low)
           const priceA = a.price || 0;
           const priceB = b.price || 0;
-          return priceB - priceA;  // High to low
+          return priceB - priceA;
   
         case 'priceLowToHigh':
           // Sort companies by price (low to high)
           const priceLowA = a.price || 0;
           const priceLowB = b.price || 0;
-          return priceLowA - priceLowB;  // Low to high
+          return priceLowA - priceLowB;
   
         default:
           return 0;  // If no sort option is selected, do no sorting
